@@ -1,10 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"sync"
-	"fmt"
 )
 
 var cnt int
@@ -16,10 +16,9 @@ func main() {
 	log.Fatal(http.ListenAndServe("127.0.0.1:8080", nil))
 }
 
-
 func handler(writer http.ResponseWriter, request *http.Request) {
 	lock.Lock()
-	cnt ++
+	cnt++
 	lock.Unlock()
 	fmt.Fprintf(writer, request.URL.Path)
 }

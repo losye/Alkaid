@@ -15,6 +15,7 @@ func main() {
 }
 
 func test() {
+
 	x := 1
 	p := &x         // p, of type *int, points to x
 	fmt.Println(p)  // memory address
