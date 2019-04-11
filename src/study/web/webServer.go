@@ -11,6 +11,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.Handle("/list", http.HandlerFunc(db.list))
 	mux.Handle("/price", http.HandlerFunc(db.price))
+	mux.Handle("/file", http.FileServer(http.Dir(".")))
 	log.Fatal(http.ListenAndServe("localhost:8000", mux))
 }
 
